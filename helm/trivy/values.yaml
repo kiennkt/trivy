@@ -10,7 +10,7 @@ image:
   pullPolicy: IfNotPresent
   pullSecret: ""
 
-replicaCount: 1
+replicaCount: 2
 
 persistence:
   enabled: true
@@ -112,9 +112,9 @@ trivy:
   # In case redis is not enabled, the filesystem will be used
   cache:
     redis:
-      enabled: false
-      url: ""  # e.g. redis://redis.redis.svc:6379
-      ttl: ""  # e.g 3600s, 24h
+      enabled: true
+      url: "redis://trivy-redis.trivy.svc:6379"  # e.g. redis://redis.redis.svc:6379
+      ttl: "24h"  # e.g 3600s, 24h
       tls: false
   serviceAccount:
     annotations: {}
